@@ -1,0 +1,36 @@
+<ng-container *pvoWith="record[0] as o">
+  <p>Synth : {{ o.brand }} {{ o.model }}, {{o.nbVoice}} voices polyphony.</p>
+</ng-container>
+
+<ng-container *pvoWith="o$ | async as o">
+  <p>Synth : {{ o.brand }} {{ o.model }}, {{o.nbVoice}} voices polyphony.</p>
+</ng-container>
+
+<h1>RestoreScrollPositionDirective</h1>
+
+<nav>
+  <button *ngFor="let item of items" (click)="activeItem(item)">
+    Navigate to {{ item.label }}
+  </button>
+</nav>
+
+<hr />
+
+<div
+  #self
+  class="scrollable-content"
+  [pvoRestoreScrollPosition]="itemActive.id"
+  [scrollTarget]="self"
+>
+  <ng-container *ngFor="let item of items">
+    <div *ngIf="itemActive === item">{{ item.content }}</div>
+  </ng-container>
+</div>
+
+<h1>AttachDirective</h1>
+
+<ng-container *ngFor="let item of items">
+  <div class="scrollable-content" *pvoAttach="itemActive === item">
+    {{ item.content }}
+  </div>
+</ng-container>

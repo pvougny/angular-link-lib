@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "paths": {
+      "@olop/ng-attach": ["../angular-utility/projects/attach/src/public-api"],
+      "@olop/ng-scroll": ["../angular-utility/projects/scroll/src/public-api"],
+      "@olop/ng-translate": ["../angular-utility/projects/translate/src/public-api"],
+      "@olop/ng-with": ["../angular-utility/projects/with/src/public-api"]
+    }
+  }
+}
